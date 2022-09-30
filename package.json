@@ -1,7 +1,6 @@
 {
 	"name": "@nathanlindsay/validate",
 	"version": "0.0.1",
-	"private": false,
 	"main": "index.ts",
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "^5.27.0",
