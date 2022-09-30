@@ -1,0 +1,32 @@
+{
+  "root": true,
+
+  "parser": "@typescript-eslint/parser",
+
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2020
+  },
+
+  "env": {
+    "browser": true,
+    "es2017": true,
+    "node": true
+  },
+
+  "rules": {
+    "curly": "error",
+    "func-style": ["error", "expression"],
+    "no-console": "error",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error"
+  }
+}
