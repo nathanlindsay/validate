@@ -4,7 +4,7 @@ interface ValidationFunction {
 
 interface Validation {
 	name: string;
-	validation: ValidationFunction;
+	validation: ValidationFunction | undefined;
 	message: string;
 }
 
