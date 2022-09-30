@@ -2,11 +2,11 @@ import { Validation } from "./types";
 
 export default (formData: FormData, validations: Validation[]) => {
 	const errors: Record<string, string> = {};
-	const values: Record<string, FormDataEntryValue | string> = {};
+	const values: Record<string, string> = {};
 
 	for (const { name, validation, message } of validations) {
 		// Get the value
-		const value = formData.get(name);
+		const value = formData.get(name) as string;
 
 		// If there's a validation function
 		if (validation) {
@@ -36,7 +36,7 @@ export default (formData: FormData, validations: Validation[]) => {
 		}
 
 		// If there's no validation function, just add the value to the values object
-		values[name] = value ?? "";
+		values[name] = value;
 	}
 
 	return {
