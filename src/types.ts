@@ -1,5 +1,5 @@
 interface ValidationFunction {
-	(value: FormDataEntryValue | string | null): string | null;
+	(value: string): string | null;
 }
 
 interface Validation {
