@@ -16,7 +16,7 @@ export default (formData: FormData, validations: Validation[]) => {
 				const validatedValue = validation(value);
 
 				// If we get a validated value back
-				if (validatedValue) {
+				if (validatedValue !== null) {
 					// Add the validated value to the values object
 					values[name] = validatedValue;
 				}
@@ -30,8 +30,10 @@ export default (formData: FormData, validations: Validation[]) => {
 			}
 			// If the original value is null
 			else {
-				// Add the error message to the errors object
-				errors[name] = message;
+				if (message) {
+					// Add the error message to the errors object
+					errors[name] = message;
+				}
 			}
 		}
 

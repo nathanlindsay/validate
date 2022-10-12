@@ -5,7 +5,7 @@ interface ValidationFunction {
 interface Validation {
 	name: string;
 	validation?: ValidationFunction;
-	message: string;
+	message?: string;
 }
 
 export { Validation, ValidationFunction };
