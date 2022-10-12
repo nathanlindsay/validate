@@ -2,7 +2,7 @@ import { Validation } from "./types";
 
 export default (formData: FormData, validations: Validation[]) => {
 	const errors: Record<string, string> = {};
-	const values: Record<string, string> = {};
+	const values: Record<string, string | boolean> = {};
 
 	for (const { name, validation, message } of validations) {
 		// Get the value

@@ -2,6 +2,7 @@ import type { ValidationFunction } from "./src/types";
 import validate from "./src/validate";
 import validateBankAccountNumber from "./src/validate-bank-account-number";
 import validateBankSortCode from "./src/validate-bank-sort-code";
+import validateCheckbox from "./src/validate-checkbox";
 import validateCurrency from "./src/validate-currency";
 import validateDate from "./src/validate-date";
 import validateEmailAddress from "./src/validate-email-address";
@@ -13,6 +14,7 @@ export {
 	validate,
 	validateBankAccountNumber,
 	validateBankSortCode,
+	validateCheckbox,
 	validateCurrency,
 	validateDate,
 	validateEmailAddress,
