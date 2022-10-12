@@ -1,5 +1,5 @@
 interface ValidationFunction {
-	(value: string): string | boolean | null;
+	(value: string): string | null;
 }
 
 interface Validation {

@@ -1,11 +1,11 @@
 import type { ValidationFunction } from "./types";
 
 const validateCheckbox: ValidationFunction = (checkbox) => {
-	if (checkbox === "on") {
-		return true;
+	if (checkbox) {
+		return "true";
 	}
 
-	return false;
+	return "false";
 };
 
 export default validateCheckbox;
