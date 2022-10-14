@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateUuid: ValidationFunction = (uuid) => {
+const validateUuid: Validator = (uuid) => {
 	uuid = uuid.replace(/\s/, "").toLowerCase();
 
 	if (

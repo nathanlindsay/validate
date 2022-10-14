@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateMobileNumber: ValidationFunction = (mobileNumber) => {
+const validateMobileNumber: Validator = (mobileNumber) => {
 	mobileNumber = mobileNumber.replace(/[^\d]+/, "");
 
 	if (mobileNumber.match(/^07\d{9}$/)) {

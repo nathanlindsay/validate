@@ -1,11 +1,22 @@
-interface ValidationFunction {
-	(value: string): string | null;
+interface Validator {
+	(value: string): string | null | Promise<string | null>;
 }
 
 interface Validation {
-	name: string;
-	validation?: ValidationFunction;
+	required?: boolean;
+
+	type:
+		| "bankAccountNumber"
+		| "bankSortCode"
+		| "checkbox"
+		| "currency"
+		| "date"
+		| "emailAddress"
+		| "mobileNumber"
+		| "postcode"
+		| "uuid";
+
 	message?: string;
 }
 
-export { Validation, ValidationFunction };
+export { Validation, Validator };

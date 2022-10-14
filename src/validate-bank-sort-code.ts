@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateBankSortCode: ValidationFunction = (sortCode) => {
+const validateBankSortCode: Validator = (sortCode) => {
 	sortCode = sortCode.replace(/[^\d]+/, "");
 
 	if (sortCode.match(/^\d{6}$/)) {

@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateCheckbox: ValidationFunction = (checkbox) => {
+const validateCheckbox: Validator = (checkbox) => {
 	if (checkbox) {
 		return "true";
 	}

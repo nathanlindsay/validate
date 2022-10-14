@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateDate: ValidationFunction = (date) => {
+const validateDate: Validator = (date) => {
 	date = date.trim();
 
 	if (date.match(/\d{4}-\d{2}-\d{2}/)) {
