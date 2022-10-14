@@ -1,5 +1,11 @@
 # @nathanlindsay/validate
 
+## 1.0.1
+
+### Patch Changes
+
+- Fixes validations type
+
 ## 1.0.0
 
 ### Major Changes

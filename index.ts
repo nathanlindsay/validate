@@ -1,4 +1,4 @@
-import type { Validation, Validator } from "./src/types";
+import type { Validations, Validator } from "./src/types";
 import validateBankAccountNumber from "./src/validate-bank-account-number";
 import validateBankSortCode from "./src/validate-bank-sort-code";
 import validateCheckbox from "./src/validate-checkbox";
@@ -51,7 +51,7 @@ const validators = {
 
 export const validate = async (
 	formData: FormData,
-	validations: Validation[]
+	validations: Validations
 ) => {
 	const errors = {};
 	const values = {};

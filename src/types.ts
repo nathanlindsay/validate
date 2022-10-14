@@ -2,21 +2,23 @@ interface Validator {
 	(value: string): string | null | Promise<string | null>;
 }
 
-interface Validation {
-	required?: boolean;
+interface Validations {
+	[name: string]: {
+		required?: boolean;
 
-	type:
-		| "bankAccountNumber"
-		| "bankSortCode"
-		| "checkbox"
-		| "currency"
-		| "date"
-		| "emailAddress"
-		| "mobileNumber"
-		| "postcode"
-		| "uuid";
+		type:
+			| "bankAccountNumber"
+			| "bankSortCode"
+			| "checkbox"
+			| "currency"
+			| "date"
+			| "emailAddress"
+			| "mobileNumber"
+			| "postcode"
+			| "uuid";
 
-	message?: string;
+		message?: string;
+	};
 }
 
-export { Validation, Validator };
+export { Validations, Validator };
