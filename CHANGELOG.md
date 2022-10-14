@@ -1,5 +1,11 @@
 # @nathanlindsay/validate
 
+## 1.0.2
+
+### Patch Changes
+
+- Type is optional
+
 ## 1.0.1
 
 ### Patch Changes

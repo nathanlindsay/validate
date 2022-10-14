@@ -67,17 +67,21 @@ export const validate = async (
 			continue;
 		}
 
-		const { validator, defaultMessage } = validators[type];
+		if (type) {
+			const { validator, defaultMessage } = validators[type];
 
-		const validatedValue = await validator(value);
+			const validatedValue = await validator(value);
 
-		if (!validatedValue) {
-			errors[name] = message || defaultMessage;
-			values[name] = value;
-			continue;
+			if (!validatedValue) {
+				errors[name] = message || defaultMessage;
+				values[name] = value;
+				continue;
+			}
+
+			values[name] = validatedValue;
 		}
 
-		values[name] = validatedValue;
+		values[name] = value;
 	}
 
 	return {

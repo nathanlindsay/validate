@@ -6,7 +6,7 @@ interface Validations {
 	[name: string]: {
 		required?: boolean;
 
-		type:
+		type?:
 			| "bankAccountNumber"
 			| "bankSortCode"
 			| "checkbox"
