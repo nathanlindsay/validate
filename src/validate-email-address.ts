@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateEmailAddress: ValidationFunction = (emailAddress) => {
+const validateEmailAddress: Validator = (emailAddress) => {
 	emailAddress = emailAddress.replace(/\s/, "");
 
 	if (emailAddress.match(/(.+@.+\..+)/)) {

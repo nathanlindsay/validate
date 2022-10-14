@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateCurrency: ValidationFunction = (currency) => {
+const validateCurrency: Validator = (currency) => {
 	currency = currency.trim();
 
 	if (currency.match(/^\d+\.\d{2}$/)) {

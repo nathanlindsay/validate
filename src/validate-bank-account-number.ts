@@ -1,6 +1,6 @@
-import type { ValidationFunction } from "./types";
+import type { Validator } from "./types";
 
-const validateBankAccountNumber: ValidationFunction = (accountNumber) => {
+const validateBankAccountNumber: Validator = (accountNumber) => {
 	accountNumber = accountNumber.replace(/[^\d]+/, "");
 
 	if (accountNumber.match(/^\d{8}$/)) {
