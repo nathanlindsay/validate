@@ -17,6 +17,8 @@ interface Validations {
 			| "postcode"
 			| "uuid";
 
+		validator?: Validator;
+
 		message?: string;
 	};
 }
