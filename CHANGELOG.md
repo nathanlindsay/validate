@@ -1,5 +1,11 @@
 # @nathanlindsay/validate
 
+## 1.0.3
+
+### Patch Changes
+
+- Trim values and make validator optional
+
 ## 1.0.2
 
 ### Patch Changes
