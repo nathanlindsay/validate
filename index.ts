@@ -53,19 +53,21 @@ export const validate = async (
 	formData: FormData,
 	validations: Validations
 ) => {
-	const errors = {};
-	const values = {};
+	const errors: Record<string, string> = {};
+	const values: Record<string, string | null> = {};
 
-	for (const [name, { required, type, message }] of Object.entries(
+	for (const [name, { required, type, validator, message }] of Object.entries(
 		validations
 	)) {
-		const value = formData.get(name) as string;
+		let value = formData.get(name) as string;
 
 		if (required && !value) {
 			errors[name] = message || "This is required";
 			values[name] = null;
 			continue;
 		}
+
+		value = value.trim();
 
 		if (type) {
 			const { validator, defaultMessage } = validators[type];
@@ -79,6 +81,16 @@ export const validate = async (
 			}
 
 			values[name] = validatedValue;
+		} else if (validator) {
+			const validatedValue = await validator(value);
+
+			if (validatedValue) {
+				values[name] = validatedValue;
+			} else {
+				errors[name] = message || "This doesn't look right";
+				values[name] = value;
+				continue;
+			}
 		}
 
 		values[name] = value;
