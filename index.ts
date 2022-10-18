@@ -59,7 +59,7 @@ export const validate = async (
 	for (const [name, { required, type, validator, message }] of Object.entries(
 		validations
 	)) {
-		let value = formData.get(name) as string;
+		let value = formData.get(name)?.toString() ?? "";
 
 		if (required && !value) {
 			errors[name] = message || "This is required";
