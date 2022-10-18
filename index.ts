@@ -54,45 +54,74 @@ export const validate = async (
 	validations: Validations
 ) => {
 	const errors: Record<string, string> = {};
-	const values: Record<string, string | null> = {};
+	const values: Record<string, string> = {};
 
 	for (const [name, { required, type, validator, message }] of Object.entries(
 		validations
 	)) {
-		let value = formData.get(name)?.toString() ?? "";
-
-		if (required && !value) {
-			errors[name] = message || "This is required";
-			values[name] = null;
-			continue;
+		// Throw an error if there's both a type and a validator
+		if (type && validator) {
+			throw new Error("You can't have both a type and a validator");
 		}
 
-		value = value.trim();
+		// Get the value
+		const value = (formData.get(name)?.toString() ?? "").trim();
 
-		if (type) {
-			const { validator, defaultMessage } = validators[type];
+		// If the value isn't blank
+		if (value) {
+			// If there's a type
+			if (type) {
+				// Get the validator and default message
+				const { validator, defaultMessage } = validators[type];
 
-			const validatedValue = await validator(value);
+				// Validate the value
+				const validatedValue = await validator(value);
 
-			if (!validatedValue) {
-				errors[name] = message || defaultMessage;
-				values[name] = value;
-				continue;
+				// If the value is valid
+				if (validatedValue) {
+					// Set the value and continue
+					values[name] = validatedValue;
+					continue;
+				}
+
+				// If the value is invalid
+				else {
+					// Set the error
+					errors[name] = message || defaultMessage;
+				}
 			}
 
-			values[name] = validatedValue;
-		} else if (validator) {
-			const validatedValue = await validator(value);
+			// If there's a validator
+			else if (validator) {
+				// Validate the value
+				const validatedValue = await validator(value);
 
-			if (validatedValue) {
-				values[name] = validatedValue;
-			} else {
-				errors[name] = message || "This doesn't look right";
-				values[name] = value;
-				continue;
+				// If the value is valid
+				if (validatedValue) {
+					// Set the value and continue
+					values[name] = validatedValue;
+					continue;
+				}
+
+				// If the value is invalid
+				else {
+					// Set the error
+					errors[name] = message || "This doesn't look right";
+				}
 			}
 		}
 
+		// If there is no value
+		else {
+			// If the field is required
+			if (required) {
+				// Set the error
+				errors[name] = message || "This is required";
+			}
+		}
+
+		// Set the value as the original value
+		// We won't get here if we've validated the value
 		values[name] = value;
 	}
 
