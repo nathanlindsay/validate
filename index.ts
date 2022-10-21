@@ -132,3 +132,15 @@ export const validate = async (
 };
 
 export type { Validator };
+
+export {
+	validateBankAccountNumber,
+	validateBankSortCode,
+	validateCheckbox,
+	validateCurrency,
+	validateDate,
+	validateEmailAddress,
+	validateMobileNumber,
+	validatePostcode,
+	validateUuid,
+};

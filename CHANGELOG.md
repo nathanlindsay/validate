@@ -1,5 +1,11 @@
 # @nathanlindsay/validate
 
+## 1.0.5
+
+### Patch Changes
+
+- Export individual validators
+
 ## 1.0.4
 
 ### Patch Changes
