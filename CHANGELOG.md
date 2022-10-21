@@ -1,5 +1,11 @@
 # @nathanlindsay/validate
 
+## 1.0.4
+
+### Patch Changes
+
+- Only return a string, never null
+
 ## 1.0.3
 
 ### Patch Changes
