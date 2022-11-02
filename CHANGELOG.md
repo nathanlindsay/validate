@@ -1,5 +1,11 @@
 # @nathanlindsay/validate
 
+## 1.0.6
+
+### Patch Changes
+
+- Allow currency values with no decimals
+
 ## 1.0.5
 
 ### Patch Changes
